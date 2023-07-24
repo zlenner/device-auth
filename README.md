@@ -35,7 +35,7 @@ device_auth = new server.DeviceAuth()
 
 // Whatever your app is, express fastify etc.
 app.get("/issue_challenge", async () => {
-  return JSON.stringify(device_auth.issue_challenge())
+  return device_auth.issue_challenge()
 })
 ```
 
