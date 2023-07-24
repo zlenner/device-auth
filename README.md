@@ -12,7 +12,7 @@ npm install device-auth
 
 ## Quickstart
 
-(1) Issue a challenge in the server.
+### (1) Issue a challenge in the server.
 
 **BROWSER:**
 ```javascript
@@ -33,7 +33,7 @@ app.get("/issue_challenge", async () => {
 })
 ```
 
-(2) The browser component only exposes one function, `signIn`, which takes a challenge as an argument and registers the user.
+### (2) The browser component only exposes one function, `signIn`, which takes a challenge as an argument and registers the user.
 
 **BROWSER:**
 
