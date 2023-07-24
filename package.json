@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "@passwordless-id/webauthn": "^1.2.4",
-    "dip93": "^1.1.0"
+    "dip93": "^1.1.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
