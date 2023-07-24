@@ -24,11 +24,11 @@
   },
   "dependencies": {
     "@passwordless-id/webauthn": "^1.2.4",
-    "dip93": "^1.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "dip93": "^1.0.2"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@types/uuid": "^9.0.2",
