@@ -1,6 +1,6 @@
-# Device-Auth Library Documentation
+# device-auth
 
-Device-Auth is a simple library that allows you to authenticate users on both the browser and server side. This documentation will guide you through the process of setting up and using the library.
+Device-Auth is a simple library that allows you to authenticate users on both the browser and server side.
 
 ## Demo
 
