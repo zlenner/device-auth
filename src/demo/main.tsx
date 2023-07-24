@@ -62,8 +62,13 @@ const Example = () => {
 
   return (
     <div>
+      <h3><a href="https://github.com/zlenner/device-auth">device-auth</a> demo</h3>
+      <p>This demo uses an in-browser mock server to complete the sign-in, and stores the returned access token in your localStorage.</p>
+
       <div>Access Token: {access_token}</div>
+      <br/>
       <button onClick={() => set_access_token(null)}>Sign Out</button>
+
     </div>
   )
 }

@@ -2,6 +2,12 @@
 
 Device-Auth is a simple library that allows you to authenticate users on both the browser and server side. This documentation will guide you through the process of setting up and using the library.
 
+## Demo
+
+[Here!](https://zlenner.github.io/device-auth/)
+
+This demo uses an in-browser mock server to complete the sign-in, and stores the returned access token in your localStorage.
+
 ## Installation
 
 To install the library, run the following command:
