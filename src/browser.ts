@@ -2,7 +2,7 @@ import { client } from '@passwordless-id/webauthn'
 import { generate } from 'dip93'
 import { EitherPayload } from 'types'
 
-export const isSignedIn = () => {
+const isSignedIn = () => {
     return localStorage.getItem("device-auth-has-signed-in") !== null
 }
 

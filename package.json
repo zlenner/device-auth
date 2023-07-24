@@ -15,10 +15,10 @@
   ],
   "scripts": {
     "start": "vite --host --open",
-    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
+    "build": "vite build --config vite.config.ts && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
     "build:demo": "vite build --config demo.vite.config.ts",
     "deploy-docs": "npm run build:demo && gh-pages -d demo-dist",
-    "watch": "tsc && vite build --watch",
+    "watch": "vite build --watch",
     "lint:scripts": "eslint . --ext .ts",
     "lint:styles": "stylelint ./**/*.{css,scss}",
     "format:scripts": "prettier . --write",
