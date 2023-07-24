@@ -33,11 +33,10 @@ app.get("/issue_challenge", async () => {
 })
 ```
 
-### (2) The browser component only exposes one function, `signIn`, which takes a challenge as an argument and registers the user.
+### (2) The browser component only exposes one function, `signIn`, which takes a challenge as an argument and registers a user. If already registered, the function will authenticate the user instead.
 
 **BROWSER:**
-
-If a user is already registered, the function will authenticate the user instead. We'll use that here.
+ We'll use that here.
 
 ```javascript
 import { signIn } from "device-auth/browser"
