@@ -74,7 +74,7 @@ const access_tokens: string[] = []
 app.post("/verify", async (request) => {
   const payload = request.body
   if (payload.type == "authenticate") {
-    const credential = await database.get(payload.credentialId)
+    const credential = await database.get(payload.credential_id)
     await device_auth.verify_authentication(payload, credential)
   } else if (payload.type == "register") {
     await device_auth.verify_registration(payload)
