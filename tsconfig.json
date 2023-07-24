@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "rootDir": "./src",
+    "outDir": "./dist",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",

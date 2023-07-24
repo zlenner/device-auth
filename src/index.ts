@@ -1,9 +1,15 @@
-import * as browser from './browser';
-import * as server from './server';
-import * as types from './types';
+import * as browser_modules from './browser';
+import * as server_modules from './server';
+import * as type_modules from './types';
 
-export {
-    browser,
-    server,
-    types
+export const browser = {
+    ...browser_modules
+}
+
+export const server = {
+    ...server_modules
+}
+
+export const types = {
+    ...type_modules
 }

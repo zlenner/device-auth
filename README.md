@@ -29,9 +29,9 @@ const challenge = await fetchJsonFromServer.get("/issue_challenge")
 Create a new instance of DeviceAuth for each server, and create a route to issue a challenge.
 
 ```javascript
-import { DeviceAuth } from "device-auth/server"
+import { server } from "device-auth"
 
-device_auth = new DeviceAuth()
+device_auth = new server.DeviceAuth()
 
 // Whatever your app is, express fastify etc.
 app.get("/issue_challenge", async () => {
@@ -45,9 +45,9 @@ app.get("/issue_challenge", async () => {
  We'll use that here.
 
 ```javascript
-import { signIn } from "device-auth/browser"
+import { browser } from "device-auth"
 
-const payload = await signIn(challenge)
+const payload = await browser.signIn(challenge)
 ```
 
 NOTE: On incognito, or if the user has cleared their localStorage, this will register a new user, but the previous user will still be available for sign-in after a new user has been registered.

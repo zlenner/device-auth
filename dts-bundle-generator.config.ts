@@ -4,13 +4,8 @@ const config = {
   },
   entries: [
     {
-      filePath: "./src/browser.ts",
-      outFile: "./dist/browser.d.ts",
-      noCheck: false,
-    },
-    {
-      filePath: "./src/server.ts",
-      outFile: "./dist/server.d.ts",
+      filePath: "./src/index.ts",
+      outFile: "./dist/index.d.ts",
       noCheck: false,
     }
   ],
