@@ -47,7 +47,7 @@ const payload = await signIn(challenge)
 
 NOTE: On incognito, or if the user has cleared their localStorage, this will register a new user, but the previous user will still be available for sign-in after a new user has been registered.
 
-(3) Send the payload to the server to complete the sign-in and get a token back.
+### (3) Send the payload to the server to complete the sign-in and get a token back.
 
 **BROWSER:**
 
@@ -84,7 +84,7 @@ app.post("/verify", async (request) => {
 })
 ```
 
-(4) You're a member of the app (club)! You now have access to all the secrets of the club :D
+### (4) You're a member of the app (club)! You now have access to all the secrets of the club :D
 
 **BROWSER:**
 
