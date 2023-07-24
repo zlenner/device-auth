@@ -17,7 +17,7 @@ export class DeviceAuth {
     } = {}) {
         this.challenges = {}
         this.challenge_expire_in = challenge_expire_in
-        this.origin = this.__expected_origin_function_creator(allowed_origins)
+        this.origin = this.expected_origin_function_creator(allowed_origins)
     }
 
     issue_challenge () {
@@ -27,9 +27,7 @@ export class DeviceAuth {
     }
 
     async verify_registration (payload: RegisterPayload) {
-        if (!this.__is_challenge_valid(payload.challenge)) {
-            throw new Error("Challenge is invalid or expired.")
-        }
+        this.confirm_challenge_validity(payload.challenge)
         
         const expected = {
             challenge: payload.challenge,
@@ -40,9 +38,7 @@ export class DeviceAuth {
     }
 
     async verify_authentication (payload: AuthenticatePayload, credential: CredentialKey) {
-        if (!this.__is_challenge_valid(payload.challenge)) {
-            throw new Error("Challenge is invalid or expired.")
-        }
+        this.confirm_challenge_validity(payload.challenge)
 
         const expected = {
             challenge: payload.challenge,
@@ -55,7 +51,19 @@ export class DeviceAuth {
         return authenticationParsed
     }
 
-    private __is_challenge_valid (challenge: string) {
+    private invalidate_challenge(challenge: string) {
+        delete this.challenges[challenge]
+    }
+
+    private confirm_challenge_validity(challenge: string) {
+        if (!this.is_challenge_valid(challenge)) {
+            this.invalidate_challenge(challenge)
+            throw new Error("Challenge is invalid or expired.")
+        }
+        this.invalidate_challenge(challenge)
+    }
+
+    private is_challenge_valid (challenge: string) {
         if (typeof this.challenges[challenge] === "undefined") {
             return false
         } else if (Date.now() >= this.challenges[challenge]) {
@@ -65,7 +73,7 @@ export class DeviceAuth {
         }
     }
 
-    private __expected_origin_function_creator (allowed_origins: string[] | boolean = true) {
+    private expected_origin_function_creator (allowed_origins: string[] | boolean = true) {
         return (origin: string) => {
             if (typeof allowed_origins === "boolean") {
                 return true
