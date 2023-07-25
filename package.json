@@ -1,6 +1,6 @@
 {
   "name": "device-auth",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "A simple library for authenticating with just one click, and it's more secure than a password!",
   "repository": {
     "type": "git",
@@ -27,8 +27,7 @@
   },
   "dependencies": {
     "@passwordless-id/webauthn": "^1.2.4",
-    "dip93": "^1.1.6",
-    "uuid": "^9.0.0"
+    "dip93": "^1.1.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

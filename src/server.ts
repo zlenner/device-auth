@@ -1,7 +1,8 @@
 import { server } from '@passwordless-id/webauthn';
 import { CredentialKey } from '@passwordless-id/webauthn/dist/esm/types';
 import { AuthenticatePayload, RegisterPayload } from 'types';
-import { v4 as uuidv4 } from 'uuid';
+
+const crypto = globalThis?.crypto || require('crypto')
 
 export class DeviceAuth {
     challenges: {
@@ -21,7 +22,7 @@ export class DeviceAuth {
     }
 
     issue_challenge () {
-        const uuid = uuidv4()
+        const uuid = crypto.randomUUID()
         this.challenges[uuid] = Date.now() + this.challenge_expire_in
         return uuid
     }
