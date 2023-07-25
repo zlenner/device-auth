@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@passwordless-id/webauthn": "^1.2.4",
-    "dip93": "^1.1.3",
+    "dip93": "^1.1.6",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
