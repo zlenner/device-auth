@@ -1,4 +1,4 @@
-import { signIn } from "../browser";
+import { authenticate_or_register } from "../browser";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import MockServer from "./MockServer";
@@ -45,7 +45,7 @@ const Example = () => {
   }
 
   const on_sign_in_click = async () => {
-    const payload = await signIn(challenge);
+    const payload = await authenticate_or_register(challenge);
     // If the sign is invalid, it will throw an error, so we don't need to validate
     
     if (payload.type === "authenticate") {

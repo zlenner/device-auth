@@ -5,6 +5,7 @@ export interface RegisterPayload {
     registration: RegistrationEncoded
     credential_id: string
     challenge: string
+    username: string
 }
 
 export interface AuthenticatePayload {
