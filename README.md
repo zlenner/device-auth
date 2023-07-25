@@ -1,6 +1,6 @@
-# Device-Auth Library Documentation
+# device-auth
 
-Device-Auth is a simple library that allows you to authenticate users on both the browser and server side. This documentation will guide you through the process of setting up and using the library.
+Device-Auth is a simple library that allows you to authenticate users on both the browser and server side.
 
 ## Demo
 
@@ -35,7 +35,7 @@ device_auth = new server.DeviceAuth()
 
 // Whatever your app is, express fastify etc.
 app.get("/issue_challenge", async () => {
-  return JSON.stringify(device_auth.issue_challenge())
+  return device_auth.issue_challenge()
 })
 ```
 
@@ -62,7 +62,7 @@ const token = await fetchJsonFromServer.post("/verify", payload)
 
 **SERVER:**
 
-If the `payload.type` == `authenticate`, we'll use the `verify_authentication` method.
+If the `payload.type` == `authenticate`, we'll fetch the credential from our database and use the `verify_authentication` method.
 
 If the `payload.type` == `register`, we'll use the `verify_registration` method.
 
@@ -74,7 +74,8 @@ const access_tokens: string[] = []
 app.post("/verify", async (request) => {
   const payload = request.body
   if (payload.type == "authenticate") {
-    await device_auth.verify_authentication(payload)
+    const credential = await database.get(payload.credential_id)
+    await device_auth.verify_authentication(payload, credential)
   } else if (payload.type == "register") {
     await device_auth.verify_registration(payload)
   }
