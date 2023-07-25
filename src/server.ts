@@ -1,5 +1,5 @@
-import { server } from '@passwordless-id/webauthn';
-import { CredentialKey } from '@passwordless-id/webauthn/dist/esm/types';
+import { server } from './passwordless';
+import { CredentialKey } from './passwordless/types';
 import { AuthenticatePayload, RegisterPayload } from 'types';
 
 const crypto = globalThis?.crypto || require('crypto')

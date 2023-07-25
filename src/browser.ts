@@ -1,5 +1,5 @@
-import { client } from '@passwordless-id/webauthn' 
 import { generate } from 'dip93'
+import { client } from './passwordless'
 import { EitherPayload } from 'types'
 
 export const isAvailable = () => {

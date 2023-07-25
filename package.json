@@ -26,8 +26,7 @@
     "format:styles": "stylelint ./**/*.{css,scss} --fix"
   },
   "dependencies": {
-    "@passwordless-id/webauthn": "^1.2.4",
-    "dip93": "^1.1.6"
+    "dip93": "^1.1.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
