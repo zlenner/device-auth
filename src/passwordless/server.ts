@@ -2,6 +2,7 @@ import { parseAuthentication, parseRegistration } from "./parsers";
 import { AuthenticationEncoded, AuthenticationParsed, CredentialKey, NamedAlgo, RegistrationEncoded, RegistrationParsed } from "./types";
 import * as utils from './utils'
 
+const crypto = globalThis?.crypto || require('crypto')
 
 async function isValid(validator :any, value :any) :Promise<boolean> {
    if(typeof validator === 'function') {

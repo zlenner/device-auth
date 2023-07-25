@@ -15,6 +15,8 @@ export async function getCrypto() {
 }
 */
 
+const crypto = globalThis?.crypto || require('crypto')
+
 
 export function randomChallenge() {
     return crypto.randomUUID()
