@@ -39,7 +39,7 @@ export class DeviceAuth {
     }
 
     async verify_authentication (payload: AuthenticatePayload, credential: CredentialKey) {
-        // this.confirm_challenge_validity(payload.challenge)
+        this.confirm_challenge_validity(payload.challenge)
 
         const expected = {
             challenge: payload.challenge,
