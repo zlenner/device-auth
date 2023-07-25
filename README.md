@@ -2,6 +2,8 @@
 
 Device-Auth is a simple library that allows you to authenticate users on both the browser and server side.
 
+https://github.com/zlenner/device-auth/assets/119705166/b8bba30f-ee0e-4a87-b2c7-81f255142b34
+
 ## Demo
 
 [Here!](https://zlenner.github.io/device-auth/)
