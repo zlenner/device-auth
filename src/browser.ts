@@ -24,6 +24,7 @@ export const signIn = async (challenge: string): Promise<EitherPayload> => {
         // Challenge can be empty, registration does not require a challenge.
         // But since we've loaded one, why not use it?
         const username = generate(4)
+        console.log("username", username)
         const registration = await client.register(username, challenge, {
             "authenticatorType": "auto",
             "userVerification": "required",
