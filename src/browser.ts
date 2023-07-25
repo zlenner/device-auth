@@ -2,6 +2,10 @@ import { client } from '@passwordless-id/webauthn'
 import { generate } from 'dip93'
 import { EitherPayload } from 'types'
 
+export const isAvailable = () => {
+    return client.isAvailable()
+}
+
 const isSignedIn = () => {
     return localStorage.getItem("device-auth-has-signed-in") !== null
 }
@@ -24,7 +28,6 @@ export const signIn = async (challenge: string): Promise<EitherPayload> => {
         // Challenge can be empty, registration does not require a challenge.
         // But since we've loaded one, why not use it?
         const username = generate(4)
-        console.log("username", username)
         const registration = await client.register(username, challenge, {
             "authenticatorType": "auto",
             "userVerification": "required",
