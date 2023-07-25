@@ -3,7 +3,8 @@ import { generate } from 'dip93'
 import { EitherPayload } from 'types'
 
 export const isAvailable = () => {
-    return client.isAvailable()
+    const isFirefox = (navigator.userAgent.indexOf('Firefox') !== -1)
+    return !isFirefox && client.isAvailable()
 }
 
 const isSignedIn = () => {
