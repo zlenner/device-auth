@@ -1,6 +1,6 @@
 {
   "name": "device-auth",
-  "version": "1.1.14",
+  "version": "1.2.0",
   "description": "A simple library for authenticating with just one click, and it's more secure than a password!",
   "repository": {
     "type": "git",
