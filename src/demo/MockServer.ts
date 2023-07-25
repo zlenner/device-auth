@@ -1,4 +1,4 @@
-import { CredentialKey } from "@passwordless-id/webauthn/dist/esm/types";
+import { CredentialKey } from "../passwordless/types";
 import { DeviceAuth } from "../server";
 import { AuthenticatePayload, RegisterPayload } from "types";
 

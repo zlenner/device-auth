@@ -1,4 +1,4 @@
-import { AuthenticationEncoded, RegistrationEncoded } from "@passwordless-id/webauthn/dist/esm/types"
+import { AuthenticationEncoded, RegistrationEncoded } from "./passwordless/types"
 
 export interface RegisterPayload {
     type: "register"
