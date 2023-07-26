@@ -2,9 +2,9 @@
 
 Device-Auth is a simple library that allows you to authenticate users on both the browser and server side.
 
-https://github.com/zlenner/device-auth/assets/119705166/b8bba30f-ee0e-4a87-b2c7-81f255142b34
-
 ## Demo
+
+https://github.com/zlenner/device-auth/assets/119705166/b8bba30f-ee0e-4a87-b2c7-81f255142b34
 
 [Here!](https://zlenner.github.io/device-auth/)
 
@@ -28,7 +28,7 @@ const challenge = await fetchJsonFromServer.get("/issue_challenge")
 ```
 
 **SERVER:**
-Create a new instance of DeviceAuth for each server, and create a route to issue a challenge.
+Create one instance of DeviceAuth per server, and a route to issue a challenge.
 
 ```javascript
 import { server } from "device-auth"
@@ -41,15 +41,13 @@ app.get("/issue_challenge", async () => {
 })
 ```
 
-### (2) The browser component only exposes one function, `signIn`, which takes a challenge as an argument and registers a user. If already registered, the function will authenticate the user instead.
+### (2) Use the `authenticate_or_register` function, which takes a challenge as an argument and registers a user. If already registered, the function will authenticate the user instead.
 
 **BROWSER:**
- We'll use that here.
-
 ```javascript
 import { browser } from "device-auth"
 
-const payload = await browser.signIn(challenge)
+const payload = await browser.authenticate_or_register(challenge)
 ```
 
 NOTE: On incognito, or if the user has cleared their localStorage, this will register a new user, but the previous user will still be available for sign-in after a new user has been registered.
@@ -78,10 +76,12 @@ app.post("/verify", async (request) => {
   if (payload.type == "authenticate") {
     const credential = await database.get(payload.credential_id)
     await device_auth.verify_authentication(payload, credential)
+  
   } else if (payload.type == "register") {
     await device_auth.verify_registration(payload)
+    await database.store(payload.credential_id, payload.credential)
   }
-  // If the code didn't throw an error by now, verification succeeded!
+  // If the code didn't throw an error by now, sign-in succeeded!
 
   // Generate a token and return it to the client.
   // Use something more secure than this on your app!
@@ -113,6 +113,9 @@ app.post("/get-secret-thing", async (request) => {
 })
 ```
 
+## Full documentation
 
-### Known issues
-1. An attacker can issue infinite challenges until the memory overflows and the app crashes. Can be prevented with IP rate-limiting.
+The Quickstart is what most people will need. There are more functions available which you can check out through the typescript auto-complete.
+
+## Known issues
+1. An attacker can issue infinite challenges until the memory overflows and the app crashes. Can be somewhat mitigated with IP rate-limiting.
